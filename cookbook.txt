@@ -1,0 +1,67 @@
+------------ Python Virtual Environment ------------
+
+python3 -m venv /Users/Ken/workspace/sanicProject/venv
+. /Users/Ken/workspace/sanicProject/venv/bin/activate
+
+pip freeze
+
+------------ Sanic ------------
+
+sanic --dev server.app
+
+------------ Docker ------------
+
+Build Docker image:
+docker build -t kens-sanic .
+
+Run Docker compose:
+docker-compose up
+
+Connect to container:
+docker exec -it pg-container bash
+
+Connect to database container:
+docker exec -it pg-container psql -d kensdb -U Ken
+
+Ports:
+/var/lib/postgresql/data/postgresql.conf
+
+Authentication:
+/var/lib/postgresql/data/pg_hba.conf
+
+------------ Postgres ------------
+
+Postgres data foler:
+/Users/Ken/Library/Application Support/Postgres/var-15
+
+Postgres bin:
+/Applications/Postgres.app/Contents/Versions/latest/bin
+
+Enter postgres server via command line:
+psql -U Ken
+
+List databases:
+\l
+
+Connect to database:
+\c Ken
+
+List tables:
+\dt
+
+List users:
+\du
+
+Show data directory:
+SHOW data_directory;
+
+Create table:
+CREATE TABLE quotes (
+    id SERIAL PRIMARY KEY,
+    timestamp TIMESTAMPTZ,
+    exchange VARCHAR,
+    bid_price DECIMAL,
+    ask_price DECIMAL,
+    last_price DECIMAL
+);
+
