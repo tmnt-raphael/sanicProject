@@ -14,6 +14,6 @@ CREATE TABLE job_postings (
 
 CREATE TABLE bids (
     id SERIAL PRIMARY KEY,
-    job INTEGER REFERENCES job_postings(id),
-    price INTEGER,
+    job INT REFERENCES job_postings(id),
+    price INT
 );
