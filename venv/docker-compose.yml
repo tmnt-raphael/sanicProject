@@ -3,8 +3,10 @@ version: "3"
 services:
   mypostgres:
     image: postgres:15.1-alpine
+    expose:
+      - "420"
     ports:
-      - "5432:5432"
+      - "420:420"
     container_name: pg-container
     environment:
       POSTGRES_PASSWORD: password
@@ -12,6 +14,7 @@ services:
       POSTGRES_DB: kensdb
     volumes:
       - /Users/Ken/workspace/docker/postgresData:/var/lib/postgresql/data
+    command: -p 420
 
   mysanic:
     image: kens-sanic:latest
