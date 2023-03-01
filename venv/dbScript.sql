@@ -17,3 +17,13 @@ CREATE TABLE bids (
     job INT REFERENCES job_postings(id),
     price INT
 );
+
+CREATE TABLE bids (
+    id SERIAL PRIMARY KEY,
+    job INT,
+    CONSTRAINT fk_job
+        FOREIGN KEY(job)
+            REFERENCES job_postings(id)
+            ON DELETE CASCADE,
+    price INT
+);
